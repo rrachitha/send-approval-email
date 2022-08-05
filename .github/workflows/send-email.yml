@@ -1,8 +1,7 @@
 name: Send approval email
 
 on:
-  repository_dispatch:
-    types: send_approval_email
+  workflow_dispatch:
 
 jobs:
   myEvent:
