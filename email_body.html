@@ -4,6 +4,7 @@
     <button id="btn">Approve</button>
     <script  type="module">
         const pac_token = process.env.PAC_TOKEN
+        console.log(pac_token)
 
         import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
         const octokit = new Octokit({
