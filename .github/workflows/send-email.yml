@@ -14,7 +14,7 @@ jobs:
       - name: Setup env variable
         run: env | grep 'PAC_TOKEN' > .env
         env:
-          PAC_TOKEN: ${{ secrets.MAIL_USERNAME }}
+          PAC_TOKEN: ${{ secrets.PAC_TOKEN }}
 
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
