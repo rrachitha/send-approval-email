@@ -11,6 +11,11 @@ jobs:
         with:
           ref: ${{ github.event.client_payload.ref }}
 
+      - name: Setup env variable
+        run: env | grep 'PAC_TOKEN' > .env
+        env:
+          PAC_TOKEN: ${{ secrets.MAIL_USERNAME }}
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -49,4 +54,4 @@ jobs:
           # Optional attachments:
           #attachments: attachments.zip,git.diff,./dist/static/*.js
           # Optional priority: 'high', 'normal' (default) or 'low'
-          priority: high
+          priority: normal

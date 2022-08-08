@@ -1,1 +1,42 @@
-<a href="https://api.github.com/repos/rrachitha/send-approval-email/dispatches" >Approve dev build</a>
+<body>
+
+    <button id="btn">Click me</button>
+
+    <script  type="module">
+
+        const pac_token = process.env.PAC_TOKEN
+
+        import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+        const octokit = new Octokit({
+
+            auth: `${pac_token}`
+
+          })
+        
+      document.getElementById("btn").onclick = async() => {
+
+        const obj =  await octokit.request('POST /repos/{owner}/{repo}/dispatches', {
+
+            owner: 'rrachitha',
+
+            repo: 'send-approval-email',
+
+            event_type: 'send_approval_email',
+
+            client_payload: {
+
+            unit: false,
+
+            integration: true
+
+            }
+
+            })
+        console.log(obj);
+    };
+
+    </script>
+
+</body>
+  
+  
