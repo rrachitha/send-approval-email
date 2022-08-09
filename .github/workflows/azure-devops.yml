@@ -7,8 +7,7 @@ on:
       - dev
       - feature-*
       - release-2022
-
-  workflow-dispatch:
+  workflow_dispatch:
 
 
 env:
