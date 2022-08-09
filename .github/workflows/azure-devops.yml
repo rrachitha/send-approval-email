@@ -26,3 +26,10 @@ jobs:
 
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
+
+      - name: Setup Powershell
+        uses: Amadevus/pwsh-script@v2
+        id: my-script
+        with:
+          script: '1 + 1'
+        run: echo "${{ steps.my-script.outputs.result }}"
