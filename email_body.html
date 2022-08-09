@@ -3,13 +3,18 @@
 <body>
     <button id="btn">Approve</button>
     <script  type="module">
-
+        
 
         import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+        import typeDotenv from 'https://cdn.skypack.dev/type-dotenv';
+
+        const pac_token = '';
         const octokit = new Octokit({
-            auth: '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'
-          })        
-      document.getElementById("btn").onclick = async() => {
+            auth: '%pac_token%'
+        })
+
+        console.log(pac_token)        
+        document.getElementById("btn").onclick = async() => {
         const obj =  await octokit.request('POST /repos/{owner}/{repo}/dispatches', {
 
             owner: 'rrachitha',
@@ -22,7 +27,6 @@
             })
         console.log(obj);
     };
-
     </script>
 
 </body>

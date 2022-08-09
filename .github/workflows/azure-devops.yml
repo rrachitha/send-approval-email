@@ -1,0 +1,31 @@
+name: Manhattan Azure DevOps pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature-*
+      - release-2022
+
+  workflow-dispatch:
+
+
+env:
+  MajorVersion: 22
+  MinorVersion: 0
+
+
+jobs:
+  Job_1:
+    name: Agent job 1
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repo's default branch
+        uses: actions/checkout@v3
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          vs-version: '[16.4,16.5)'
