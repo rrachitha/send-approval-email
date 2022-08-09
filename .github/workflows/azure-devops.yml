@@ -32,4 +32,6 @@ jobs:
         id: my-script
         with:
           script: '1 + 1'
+        
+      - name: test pwsh script
         run: echo "${{ steps.my-script.outputs.result }}"
