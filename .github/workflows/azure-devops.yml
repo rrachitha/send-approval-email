@@ -3,10 +3,10 @@ name: Manhattan Azure DevOps pipeline
 on:
   push:
     branches:
-      - main
+      #- main
       - dev
-      - feature-*
-      - release-2022
+      #- feature-*
+      #- release-2022
   workflow_dispatch:
 
 
@@ -27,11 +27,55 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
 
-      - name: Setup Powershell
+      - name: PreBuild File
         uses: Amadevus/pwsh-script@v2
         id: my-script
         with:
-          script: '1 + 1'
-        
-      - name: test pwsh script
-        run: echo "${{ steps.my-script.outputs.result }}"
+          script: |
+            2 + 2
+
+          #env:
+          #SYSTEM_ACCESSTOKEN: ${{ secrets.SYSTEM_ACCESSTOKEN }}
+          #AZ_FUNCTION_AUTH_CODE: ${{ secrets.AZ_FUNCTION_AUTH_CODE}}
+          #SIGNINGKEY: ${{ secrets.SIGNINGKEY }}
+          #GETDIFF: ${{ }}
+
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 8
+      
+      #- name: NPM install
+        #working-directory: src\Source\C#\General\Mvc
+        #run: npm install
+
+      - name: Gulp runner
+        #working-directory: src\Source\C#\General\Mvc\gulpfile.js
+        run: gulp
+
+
+## TODO: 
+### 1. Create Github Packages - 
+### 2. Once shameer shares the packages from Universal packages
+### 3. Upload/push them to Github Packages 
+### 4. Add steps in github actions to first download(step 3)
+
+### Find a sample dotnet hello world application
+### Understand what Nuget package is 
+### Find how to build dotnet package in local machine terminal
+### Try running the command and see if the package is getting created in your machine
+### Figure out how to create Github Packages in Github Account
+### Figure out how to push the package that you created in your local machine to the Github Packages
+### Once you uploaded the packages to Github packages from the above step
+### Find if there is a ready to use Github Action to upload the packages in Github action to Github Packages
+### If yes, very good, use it. If not, then Find the command to upload the packages from Github packages and add it as another step
+### Find if there is a ready to use Github Action to download the packages in Github action from Github packages
+### If yes, very good, use it. If not, then Find the command to download the packages from Github packages and add it as another step
+
+
+      - name: MSBuildLoop
+        uses: Amadevus/pwsh-script@v2
+        id: my-script
+        with:
+          script: |
+            
