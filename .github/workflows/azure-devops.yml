@@ -73,9 +73,9 @@ jobs:
 ### If yes, very good, use it. If not, then Find the command to download the packages from Github packages and add it as another step
 
 
-      - name: MSBuildLoop
-        uses: Amadevus/pwsh-script@v2
-        id: my-script
-        with:
-          script: |
+#      - name: MSBuildLoop
+#        uses: Amadevus/pwsh-script@v2
+##        id: my-script
+#        with:
+#          script: |
             
