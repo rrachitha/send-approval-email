@@ -1,0 +1,26 @@
+name: Manual Approval workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  approval:
+    name: approval
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo building
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ secrets.PAC_TOKEN }}
+          approvers: rrachitha
+          minimum-approvals: 1
+
+      - name: Deploy to production
+        run: echo deploying

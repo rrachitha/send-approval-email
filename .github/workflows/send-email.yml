@@ -1,44 +1,44 @@
-name: Send approval email
+#name: Send approval email
 
-on:
-  workflow_dispatch:
+#on:
+#  workflow_dispatch:
 
-jobs:
-  myEvent:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.client_payload.ref }}
+#jobs:
+#  myEvent:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          ref: ${{ github.event.client_payload.ref }}
 
-      - name: Setup env variable
-        run: env | grep 'PAC_TOKEN' > .env
-        env:
-          PAC_TOKEN: ${{ secrets.PAC_TOKEN }}
+#      - name: Setup env variable
+#        run: env | grep 'PAC_TOKEN' > .env
+#        env:
+#          PAC_TOKEN: ${{ secrets.PAC_TOKEN }}
 
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
-        with:
+#      - name: Send mail
+#        uses: dawidd6/action-send-mail@v3
+#        with:
           # Required mail server address:
-          server_address: smtp.gmail.com
+#          server_address: smtp.gmail.com
           # Required mail server port:
-          server_port: 465
+#          server_port: 465
           # Optional (recommended): mail server username:
-          username: ${{secrets.MAIL_USERNAME}}
+#          username: ${{secrets.MAIL_USERNAME}}
           # Optional (recommended) mail server password:
-          password: ${{secrets.MAIL_PASSWORD}}
+#          password: ${{secrets.MAIL_PASSWORD}}
           # Required mail subject:
-          subject: Github Actions job result
+#          subject: Github Actions job result
           # Required recipients' addresses:
-          to: rrajagopal@architech.ca
+#          to: rrajagopal@architech.ca
           # Required sender full name (address can be skipped):
-          from: Deploy CI # <user@example.com>
+#          from: Deploy CI # <user@example.com>
           # Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
+#          secure: true
           # Optional plain body:
-          body: Build job of ${{github.repository}} completed successfully!
+#          body: Build job of ${{github.repository}} completed successfully!
           # Optional HTML body read from file:
-          html_body: file://email_body.html
+#          html_body: file://email_body.html
           # Optional carbon copy recipients:
           #cc: kyloren@example.com,leia@example.com
           # Optional blind carbon copy recipients:
@@ -48,10 +48,10 @@ jobs:
           # Optional Message ID this message is replying to:
           #in_reply_to: <random-luke@example.com>
           # Optional unsigned/invalid certificates allowance:
-          ignore_cert: true
+#          ignore_cert: true
           # Optional converting Markdown to HTML (set content_type to text/html too):
-          convert_markdown: true
+#          convert_markdown: true
           # Optional attachments:
           #attachments: attachments.zip,git.diff,./dist/static/*.js
           # Optional priority: 'high', 'normal' (default) or 'low'
-          priority: normal
+#          priority: normal
