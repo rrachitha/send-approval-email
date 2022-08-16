@@ -1,2 +1,1 @@
-Write-Output "test output"
-Write-Output "$branch"
+Write-Output "test output $branch"
