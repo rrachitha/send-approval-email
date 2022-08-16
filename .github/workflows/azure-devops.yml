@@ -42,7 +42,7 @@ jobs:
 
       - name: Run a one-line script
         run: |
-          .\my_script.ps1 -branch ${GITHUB_REF}
+          .\my_script.ps1 -branch "test"
         shell: pwsh
 
       - name: PreBuild File
