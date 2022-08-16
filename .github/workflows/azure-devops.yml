@@ -46,7 +46,6 @@ jobs:
 
       - name: PreBuild File
         uses: Amadevus/pwsh-script@v2
-        id: my-script
         with:
           script: |
             5 + 5
