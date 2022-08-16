@@ -41,8 +41,8 @@ jobs:
           #GETDIFF: ${{ }}
 
       - name: Run a one-line script
-        run: .my_script.ps1 -branch_name ${GITHUB_REF}
-        shell: powershell
+        run: Invoke-Pester my_script.ps1 -branch_name ${GITHUB_REF}
+        shell: pwsh
 
       - name: PreBuild File
         uses: Amadevus/pwsh-script@v2
