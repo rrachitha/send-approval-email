@@ -41,7 +41,8 @@ jobs:
           #GETDIFF: ${{ }}
 
       - name: Run a one-line script
-        run: my_script.ps1 -branch ${GITHUB_REF}
+        run: |
+          .\my_script.ps1 -branch ${GITHUB_REF}
         shell: pwsh
 
       - name: PreBuild File
