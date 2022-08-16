@@ -40,6 +40,16 @@ jobs:
           #SIGNINGKEY: ${{ secrets.SIGNINGKEY }}
           #GETDIFF: ${{ }}
 
+      - name: Run a one-line script
+        run: .my_script.ps1 -branch_name ${GITHUB_REF}
+        shell: powershell
+
+      - name: PreBuild File
+        uses: Amadevus/pwsh-script@v2
+        id: my-script
+        with:
+          script: |
+            5 + 5
       
       - uses: actions/setup-node@v3
         with:
